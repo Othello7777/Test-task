@@ -50,12 +50,12 @@ export const headers = [
 	},
 	{
 		id: 5,
-		key: "PARTNER",
-		name: "People Partner",
+		key: "PEOPLEPARTNER",
+		name: "peoplePartner",
 	},
 	{
 		id: 6,
-		key: "BALANCE",
-		name: "Out-of-Office Balance",
+		key: "outOfOfficeBalance",
+		name: "outOfOfficeBalance",
 	},
 ];

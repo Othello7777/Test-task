@@ -18,6 +18,8 @@ function App() {
 	});
 
 	useEffect(() => {
+		// console.log(!isNaN(+value)); // true if its a number, false if not
+		// if () {}
 		const safeToLowerCase = (e) =>
 			typeof e === "string" ? e.toLowerCase() : e;
 
