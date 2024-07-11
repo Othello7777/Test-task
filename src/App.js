@@ -3,9 +3,15 @@ import "./App.css";
 import { Employee } from "./compoments/Employee";
 import { employeeState, generateId, headers } from "./compoments/Constants";
 
+// 1# Create table.
+// 2# set constans and put it in seperate file.
+
 function App() {
 	const [employeeList, setEmployeeList] = useState([...employeeState]);
-	const [employeeToBeAdded, setEmployeeToBeAdded] = useState({ status: false });
+	const [employeeToBeAdded, setEmployeeToBeAdded] = useState({
+		status: false,
+		outOfOfficeBalance: 0,
+	});
 	const [sorting, setSorting] = useState({
 		key: headers[0].name,
 		ascending: true,
@@ -29,7 +35,7 @@ function App() {
 			}
 		);
 		setEmployeeList(sortedEmployeeList);
-	}, [sorting]);
+	}, [sorting]); // func activate sorting
 
 	const deleteEmployee = (employeeToBeDeleted) => {
 		setEmployeeList(
@@ -43,17 +49,22 @@ function App() {
 		employeeToBeAdded.id = generateId();
 		setEmployeeList(employeeList);
 		setEmployeeList([...employeeList, { ...employeeToBeAdded }]);
+
+		console.log(
+			"value =" + JSON.stringify(employeeToBeAdded.outOfOfficeBalance)
+		);
 	};
 
 	const handleEmployeeToBeAddedChange = (event) => {
-		const value = event.target.value.trim();
+		const value = event.target.value.trim(); // trim() deletes spaces
 		setEmployeeToBeAdded({
 			...employeeToBeAdded,
 			[event.target.name]:
 				event.target.name === headers[1].name
-					? value.length > 0 && value.toLowerCase() !== "false"
+					? value.length > 0 && value.toLowerCase() !== "false" // toLowerCase is needed to avoid error with name which start with small letter.
 					: value,
 		});
+		console.log(value);
 	};
 	// console.log("employeeToBeAdded=" + JSON.stringify(employeeToBeAdded));
 
@@ -104,6 +115,49 @@ function App() {
 							<input
 								name='status'
 								placeholder='status'
+								onChange={handleEmployeeToBeAddedChange}
+							/>
+						</td>
+						<td>
+							<select
+								name='position'
+								placeholder='position'
+								onChange={handleEmployeeToBeAddedChange}>
+								<option value='position 1'>position #1</option>
+								<option value='position 2'>position #2</option>
+								<option value='position 3'>position #3</option>
+							</select>
+						</td>
+						<td>
+							<select
+								name='subdivision'
+								placeholder='subdivision'
+								onChange={handleEmployeeToBeAddedChange}>
+								<option value='sub 1'>subdivision #1</option>
+								<option value='sub 2'>subdivision #2</option>
+								<option value='sub 3'>subdivision #3</option>
+							</select>
+						</td>
+						<td>
+							<select
+								name='peoplePartner'
+								placeholder='partner'
+								onChange={handleEmployeeToBeAddedChange}>
+								{employeeList.map((employee) => (
+									<option
+										key={employee.id}
+										value={employee.name}
+										employee={employee}>
+										{employee.name}
+									</option>
+								))}
+							</select>
+						</td>
+						<td>
+							<input
+								name='outOfOfficeBalance'
+								type='number'
+								placeholder='balance'
 								onChange={handleEmployeeToBeAddedChange}
 							/>
 						</td>

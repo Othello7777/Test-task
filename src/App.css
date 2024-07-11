@@ -57,6 +57,12 @@ th .header-container {
 	justify-content: space-between;
 }
 
+select {
+	background-color: black;
+	color: white;
+	border: none;
+}
+
 .activeButton {
 	min-width: 64px;
 	margin: 2px;

@@ -15,6 +15,10 @@ export const Employee = (props) => {
 					width={16}
 				/>
 			</td>
+			<td>{employee.position}</td>
+			<td>{employee.subdivision}</td>
+			<td>{employee.peoplePartner}</td>
+			<td>{employee.outOfOfficeBalance}</td>
 			<td>
 				<button
 					className='activeButton'

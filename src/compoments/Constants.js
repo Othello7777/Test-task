@@ -20,11 +20,11 @@ const employeeProps = (
 });
 
 export const employeeState = [
-	employeeProps("Peter", "subdivision", "position", false),
-	employeeProps("Sam", "subdivision", "position", true),
-	employeeProps("John", "subdivision", "position", true),
-	employeeProps("Kayle", "subdivision", "position", false),
-	employeeProps("Emmile", "subdivision", "position", true),
+	employeeProps("Peter", "sub 1", "position 1", false, "", 4),
+	employeeProps("Sam", "sub 1", "position 3", true, "", 9),
+	employeeProps("John", "sub 3", "position 1", true, "", 11),
+	employeeProps("Kayle", "sub 2", "position 2", false, "", 10),
+	employeeProps("Emmile", "sub 3", "position 2", true, "", 14),
 ];
 
 export const headers = [
@@ -37,5 +37,25 @@ export const headers = [
 		id: 2,
 		key: "STATUS",
 		name: "status",
+	},
+	{
+		id: 3,
+		key: "POSITION",
+		name: "position",
+	},
+	{
+		id: 4,
+		key: "SUBDIVISION",
+		name: "subdivision",
+	},
+	{
+		id: 5,
+		key: "PARTNER",
+		name: "People Partner",
+	},
+	{
+		id: 6,
+		key: "BALANCE",
+		name: "Out-of-Office Balance",
 	},
 ];
