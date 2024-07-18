@@ -1,9 +1,11 @@
 import React from "react";
 import ImgFalse from "../ImgFalse.png";
 import ImgTrue from "../ImgTrue.svg";
+import EditButton from "./EditButton";
 
 export const Employee = (props) => {
-	const { employee } = props;
+	const { employee, deleteEmployee, setColorButton, colorButtons, index } =
+		props;
 
 	return (
 		<tr>
@@ -22,9 +24,16 @@ export const Employee = (props) => {
 			<td>
 				<button
 					className='activeButton'
-					onClick={() => props.deleteEmployee(employee)}>
+					onClick={() => deleteEmployee(employee)}>
 					Delete
 				</button>
+
+				<EditButton
+					index={index}
+					colorButtons={colorButtons}
+					setColorButton={setColorButton}
+					text={"Edit button"}
+				/>
 			</td>
 		</tr>
 	);

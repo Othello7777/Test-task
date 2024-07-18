@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { Employee } from "./compoments/Employee";
-import { employeeState, generateId, headers } from "./compoments/Constants";
+import {
+	employeeState,
+	generateId,
+	headers,
+	editButtonsState,
+} from "./compoments/Constants";
+import EditButton from "./compoments/EditButton";
 
 // 1# Create table.
 // 2# set constans and put it in seperate file.
 
 function App() {
 	const [employeeList, setEmployeeList] = useState([...employeeState]);
+	const [editbutton, setEditbutton] = useState(false);
+	const [colorButtons, setColorButton] = useState(editButtonsState);
 	const [employeeToBeAdded, setEmployeeToBeAdded] = useState({
 		status: false,
 		outOfOfficeBalance: 0,
@@ -43,6 +51,14 @@ function App() {
 		setEmployeeList(
 			employeeList.filter(
 				(employeeElement) => employeeElement.id !== employeeToBeDeleted.id
+			)
+		);
+	};
+
+	const editEmployee = (employeeToBeEdit) => {
+		setEditbutton(
+			editbutton.filter(
+				(employeeElement) => employeeElement.id !== employeeToBeEdit
 			)
 		);
 	};
@@ -101,6 +117,8 @@ function App() {
 							key={employee.id}
 							employee={employee}
 							deleteEmployee={deleteEmployee}
+							editEmployee={editEmployee}
+							editbutton={editbutton}
 						/>
 					))}
 				</tbody>
@@ -167,7 +185,7 @@ function App() {
 							<button
 								onClick={addEmployee}
 								disabled={!employeeToBeAdded.name?.trim()}>
-								Add
+								Submit
 							</button>
 						</td>
 					</tr>

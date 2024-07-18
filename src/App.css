@@ -68,6 +68,17 @@ select {
 	margin: 2px;
 }
 
+.editButtonPressed {
+	background-color: #61dafb;
+	min-width: 64px;
+	margin: 2px;
+}
+
+.editButton {
+	min-width: 64px;
+	margin: 2px;
+}
+
 .boxAdder {
 	max-width: 300px;
 	margin-left: auto;

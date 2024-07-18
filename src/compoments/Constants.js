@@ -19,6 +19,17 @@ const employeeProps = (
 	outOfOfficeBalance,
 });
 
+const buttonProps = (index, state) => ({
+	index: index,
+	state: state,
+});
+
+export const editButtonsState = [
+	buttonProps(1, false),
+	buttonProps(2, false),
+	buttonProps(3, false),
+];
+
 export const employeeState = [
 	employeeProps("Peter", "sub 1", "position 1", false, "", 4),
 	employeeProps("Sam", "sub 1", "position 3", true, "", 9),
