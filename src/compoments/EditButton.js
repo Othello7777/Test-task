@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 
 const EditButton = (props) => {
-	const [pressedButton, setPressedButton] = useState(false);
-	const { index, text } = props;
-
-	const handleChange = () => {
-		setPressedButton((current) => !current);
-	};
+	const { index, text, pressedButton, handleChange } = props;
 
 	return (
 		<button

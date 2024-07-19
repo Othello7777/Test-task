@@ -64,6 +64,14 @@ function App() {
 	};
 
 	const addEmployee = () => {
+		// add here condition if any edit buttons are presssed
+
+		// if () {
+		// 	console.log("Edit buttons are pressed.")
+		// } else {
+		// 	console.log("Edit buttons are not pressed.")
+		// }
+
 		employeeToBeAdded.id = generateId();
 		setEmployeeList(employeeList);
 		setEmployeeList([...employeeList, { ...employeeToBeAdded }]);
@@ -105,7 +113,8 @@ function App() {
 						{headers.map((header, index) => (
 							<th key={index} onClick={() => handleHeaderClick(header.name)}>
 								{header.name}{" "}
-								{sorting.key === header.name && (sorting.ascending ? "▲" : "▼")}
+								{sorting.key === header.name &&
+									(sorting.ascending ? "▲" : "▼")}
 							</th>
 						))}
 						<th>Action</th>

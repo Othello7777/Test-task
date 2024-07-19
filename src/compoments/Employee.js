@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import ImgFalse from "../ImgFalse.png";
 import ImgTrue from "../ImgTrue.svg";
 import EditButton from "./EditButton";
 
 export const Employee = (props) => {
+	const [pressedButton, setPressedButton] = useState(false);
 	const { employee, deleteEmployee, setColorButton, colorButtons, index } =
 		props;
+
+	const handleChange = () => {
+		setPressedButton((current) => !current);
+	};
 
 	return (
 		<tr>
@@ -32,6 +37,8 @@ export const Employee = (props) => {
 					index={index}
 					colorButtons={colorButtons}
 					setColorButton={setColorButton}
+					pressedButton={pressedButton}
+					handleChange={handleChange}
 					text={"Edit button"}
 				/>
 			</td>
